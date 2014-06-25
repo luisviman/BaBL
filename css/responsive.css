@@ -1,0 +1,91 @@
+
+/*WIDTH*/
+@media (max-width: 1070px){
+    h1{
+        font-size: 20px;
+    }  
+    #informationContainer h1{
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 959px) { 
+    #form-panel {
+        text-align: center;
+    }
+}
+
+@media (max-width: 961px) { /*900*/
+    h1{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 794px) { /*730*/
+    #whiteTower{
+        display: none;
+    }
+    #header1{
+        margin-top: 20px;
+    }
+    #header3{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 620px) { /*555*/
+    #header1{
+        width: 56px;
+    }
+    #header3{
+        position: relative;
+        float: right;
+        width: 140px;
+    }
+    .body{
+        width: 620px; /*555*/
+    }
+    .footer{
+        width: 620px; /*555*/
+    }
+}
+
+/*HEIGHT*/
+@media (max-height: 720px) {
+    #roomBody{
+        margin-top: -7px;
+        padding-bottom: 15px;
+        position: static;
+        display: inline-block;
+    }
+    #roomFooter{
+        position: static;
+        margin-top: -7px;
+    }
+}
+
+@media (max-height: 630px) {
+    #indexBody{
+        margin-top: -7px;
+        padding-bottom: 15px;
+        position: static;
+        display: inline-block;
+    }
+    #indexFooter{
+        position: static;
+        margin-top: -7px;
+    }
+}
+
+@media (max-height: 400px) {
+    #contactBody{
+        margin-top: -7px;
+        padding-bottom: 15px;
+        position: static;
+        display: inline-block;
+    }
+    #contactFooter{
+        position: static;
+        margin-top: -7px;
+    }
+}

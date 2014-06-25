@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BaBL</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/lib/adapter.js"></script>
+        <script src="js/lib/jquery-2.1.0.min.js"></script>
+        <script src="js/lib/uikit.min.js"></script>
+        <link href="//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/babl.uikit.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/responsive.css"/>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="header1"><img src="/images/BaBLLogo.png" alt="BaBL" id="BaBLLogo"></div>
+                <div id="header2">
+                    <h1><a href="/"><img src="/images/whiteTower.png" id="whiteTower">Home</a></h1>
+                    <h1><a href="/whatsBaBL.html" target="_blank"><img src="/images/whiteTower.png" id="whiteTower">What's BaBL?</a></h1>
+                    <h1><a href="/problems.html" target="_blank"><img src="/images/whiteTower.png" id="whiteTower">Problems?</a></h1>
+                    <h1><a href="/contact.html" target="_blank"><img src="/images/whiteTower.png" id="whiteTower">Contact</a></h1>
+                </div>
+                <div id="header3"><img src="/images/IITLogo.png" alt="IIT" id="IITLogo"></div>
+            </div>
+
+            <div id="roomBody" class="body">
+                <div id="localArea">
+                    <div id="localAreaPanel" class="uk-panel uk-panel-box uk-panel-box-primary">
+
+                        <video id="localVideo" autoplay muted></video>
+                        <div id="localUserTitle">You are connected as: </div>
+
+                        <p></p>
+                        <div>Your language is: <span class="uk-icon-info-circle" data-uk-tooltip="" title="Please, select the language you are speaking right now"></span></div>
+                        
+                        <select id="languageSelector" onchange="updateLanguage()">
+                            <!-- Some languages are not used since there are no speech synthesizers for them -->
+                            <option value="de">Deutsch</option>
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="fr">Français</option>
+                            <option value="it">Italiano</option>
+                            <option value="pt">Português</option>
+                            <option value="ru">Pусский</option>
+                            <option value="ko">한국어</option>
+                            <option value="cmn">中文</option>
+                            <option value="ja">日本語</option>
+                            <option value="ar">العربية</option>
+                        </select>
+
+                        <p></p>
+                        <div>Transcription storage: <span class="uk-icon-info-circle" data-uk-tooltip="" title="Save the conversation you are having right now by switching on the 'Transcription storage' option and review it later by clicking the 'Browse stored transcriptions' link"></span></div>
+                        <div class="uk-button-group" data-uk-button-radio="">
+                            <button class="uk-button uk-button-primary uk-active" id="transcriptionButtonOff">Off</button>
+                            <button class="uk-button uk-button-primary" id="transcriptionButtonOn">On</button>
+                        </div>
+
+                        <p></p>
+                        <a href="/transcriptionStorage.html" target="_blank">Browse stored transcriptions</a>
+
+                        <p></p>
+                        <div class="uk-panel uk-panel-box uk-panel-box-primary speechRecognitionIndicatorOff" id="speechRecognitionIndicator">You are being BaBL'ed <span class="uk-icon-info-circle" data-uk-tooltip="" title="Your speech is being used for providing real-time captioning"></span></div>
+                    </div>
+                </div>
+
+                <div id="remoteArea">
+                </div>
+            </div>
+
+            <div id="roomFooter" class="footer">
+                <a href="http://voip.itm.iit.edu/" target="_blank">IIT RTC Research Lab</a>
+                <a href="http://www.iit.edu" target="_blank">Illinois Institute of Technology</a>
+                <a href="http://www.webrtc.org" target="_blank">WebRTC.org</a>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+
+    </body>
+</html>

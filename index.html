@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BaBL</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/lib/jquery-2.1.0.min.js"></script>
+        <script src="js/lib/uikit.min.js"></script>
+        <link href="//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/babl.uikit.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/responsive.css"/>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="header1"><img src="/images/BaBLLogo.png" alt="BaBL" id="BaBLLogo"></div>
+                <div id="header2">
+                    <h1><a href="/"><img src="/images/whiteTower.png" id="whiteTower">Home</a></h1>
+                    <h1><a href="/whatsBaBL.html"><img src="/images/whiteTower.png" id="whiteTower">What's BaBL?</a></h1>
+                    <h1><a href="/problems.html"><img src="/images/whiteTower.png" id="whiteTower">Problems?</a></h1>
+                    <h1><a href="/contact.html"><img src="/images/whiteTower.png" id="whiteTower">Contact</a></h1>
+                </div>
+                <div id="header3"><img src="/images/IITLogo.png" alt="IIT" id="IITLogo"></div>
+            </div>
+
+            <div id="indexBody" class="body">
+                <div class="uk-panel uk-panel-box uk-panel-box-primary" id="form-panel">
+                    <div id="messages"><p>Please enter username and room</p></div>
+                    <form id="access-form" class="uk-form uk-form-horizontal">
+                        <div class="uk-form-row">
+                            <label class="uk-form-label" for="form-h-it">Username:</label>
+                            <div class="uk-form-controls">
+                                <input type="text" id="username" class="form-h-it">
+                            </div>
+                        </div>
+                        <div class="uk-form-row">
+                            <label class="uk-form-label" for="form-h-it">Room:</label>
+                            <div class="uk-form-controls">
+                                <input type="text" id="room" class="form-h-it">
+                            </div>
+                        </div>
+                        <div class="uk-form-row">
+                            <div class="uk-form-controls">
+                                <button type="button" class="uk-button uk-button-primary" onclick="goToRoom(room.value, username.value)" >Go to room</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="uk-panel uk-panel-box uk-panel-box-primary" id="form-panel">
+                    <div id="informationContainer">
+                        <img src="/images/chrome.png" id="chromeImage">
+                        Please, note that in order to enjoy all the features included in BaBL you should use the
+                        <a href="http://www.google.com/chrome/browser/">latest Chrome browser</a>.
+                        <p id="thanks">Thank you!</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="indexFooter" class="footer">
+                <a href="http://voip.itm.iit.edu/">IIT RTC Research Lab</a>
+                <a href="http://www.iit.edu">Illinois Institute of Technology</a>
+                <a href="http://www.webrtc.org">WebRTC.org</a>
+            </div>
+        </div>
+
+        <script src="js/initial.js"></script>
+
+    </body>
+</html>

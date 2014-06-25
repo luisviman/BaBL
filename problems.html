@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BaBL</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/lib/jquery-2.1.0.min.js"></script>
+        <script src="js/lib/uikit.min.js"></script>
+        <link href="//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/babl.uikit.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/responsive.css"/>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="header1"><img src="/images/BaBLLogo.png" alt="BaBL" id="BaBLLogo"></div>
+                <div id="header2">
+                    <h1><a href="/"><img src="/images/whiteTower.png" id="whiteTower">Home</a></h1>
+                    <h1><a href="/whatsBaBL.html"><img src="/images/whiteTower.png" id="whiteTower">What's BaBL?</a></h1>
+                    <h1><a href="/problems.html"><img src="/images/whiteTower.png" id="whiteTower">Problems?</a></h1>
+                    <h1><a href="/contact.html"><img src="/images/whiteTower.png" id="whiteTower">Contact</a></h1>
+                </div>
+                <div id="header3"><img src="/images/IITLogo.png" alt="IIT" id="IITLogo"></div>
+            </div>
+
+            <div id="informationBody">
+                <div class="uk-panel uk-panel-box uk-panel-box-primary" id="informationPanel">
+                    <div id="informationContainer">
+                        <img src="/images/tower.png" id="towerImage">
+
+                        <h1 class="uk-text-primary">Table of contents:</h1>
+                        <p>
+                            <a href="#P1">Connection problems</a><br/>
+                            <a href="#P2">Video and audio quality</a><br/>
+                            <a href="#P3">Subtitles/translation accuracy</a><br/>
+                            <a href="#P4">Available languages</a><br/>
+                            <a href="#P5">Errors reference</a><br/>
+                        </p>
+
+                        <h1 id="P1" class="uk-text-primary">Connection problems</h1>
+                        <p>
+                            <span class="uk-text-primary">Q: When I enter the room nothing happens. I don't even see myself.<br/></span>
+                            A: Please, follow the next steps:<br/>
+                            1) Maybe your browser doesn't support WebRTC. We recommend using the <a href="http://www.google.com/chrome/browser/">latest Google Chrome browser</a>.<br/>
+                            2) You have to allow BaBL to access your microphone and camera when prompted at the top of the page. If you already denied access, you can change this configuration by clicking on the lock located inside the address bar.
+                        </p>
+                        <p>
+                            <span class="uk-text-primary">Q: I can see myself but nothing else.<br/></span>
+                            A: You need to enter in the same room as other users to start the video conference. Please, note that room names are case sensitive.
+                        </p>
+                        <p>
+                            <span class="uk-text-primary">Q: I see the remote user as a black square.<br/></span>
+                            A: Either you or the other user is behind a NAT router or a firewall. BaBL uses a TURN server for solving these situations. However, this server is often under maintenance due to the fact that it is part of another project developed at Illinois Institute of Technology. Please, <a href="contact.html">contact us</a> if you experience this problem.
+                        </p>
+
+                        <h1 id="P2" class="uk-text-primary">Video and audio quality</h1>
+                        <p>
+                            <span class="uk-text-primary">Q: Sometimes I'm not getting very good video or audio quality.<br/></span>
+                            All the connections between users in a room are peer-to-peer, except in the case of using the TURN server. The video and audio quality is adapted automatically to the maximum supported by the two users involved in the peer-to-peer connection. BaBL has nothing to do with it, the conference quality only depends on the users' resources as, for instance, the bandwidth of their Internet connection.
+                        </p>
+
+                        <h1 id="P3" class="uk-text-primary">Subtitles/translation accuracy</h1>
+                        <p>
+                            <span class="uk-text-primary">Q: The subtitles accuracy, even in Original mode, is not very good.<br/></span>
+                            A: We think the subtitles accuracy is pretty good. However, the next factors affect the accuracy of Google's voice recognition engine:<br/>
+                            - The user that is speaking has not selected his language using the dropdown menu located at the left side of the screen.<br/>
+                            - The user speaking is using a low bandwidth internet connection, causing the drop of the audio quality affecting badly to the transcription.<br/>
+                            - A poor quality microphone or a noisy environment, will add noise to the audio stream affecting the transcription.<br/>
+                            - Not speaking directly to the microphone, speaking in low volume, speaking too fast and speaking with a strong accent will also affect the transcription.<br/>
+                            Summarizing, if you speak clearly and slowly directly to the microphone and you are use a good Internet connection, the subtitles you will generate will be pretty accurate.
+                        </p>
+                        <p>
+                            <span class="uk-text-primary">Q: Sometimes translations are not correct.<br/></span>
+                            A: BaBL uses Microsoft Translator as  translation service. Although Microsoft Translator is one of the most precise translation services available nowadays, some sentences are not properly translated since machine translation is really complex.<br/>
+                            Some translation errors may be also caused by errors committed by the speech recognition engine cited in the previous section. If the speech is not properly transcribed, the translation will be wrong.
+                        </p>
+
+                        <h1 id="P4" class="uk-text-primary">Available languages</h1>
+                        <p>
+                            <span class="uk-text-primary">Q: Why these languages?<br/></span>
+                            A: The available languages represent some of the most spoken languages of the world.
+                            As another of the most spoken languages of the world, we would like to add Hindi to BaBL's set of languages, but it is no possible right now since there is no speech recognition engine for Hindi included in the Web Speech API that BaBL's uses.<br/>
+                            It is possible to add more languages and they will be added in next updates.
+                        </p>
+                        <p>
+                            <span class="uk-text-primary">Q: The spoken mode doesn't work with Portuguese, Russian and Arabic.<br/></span>
+                            A: Sorry, there is no speech synthesis engine built in Google Chrome for these three languages.
+                        </p>
+
+                        <h1 id="P5" class="uk-text-primary">Errors reference</h1>
+                        <p>
+                            <span class="uk-text-primary">Q: "An error ocurred when accessing media"<br/></span>
+                            BaBL was unable to access your camera and microphone. This can happen if you deny access to the camera or the microphone or if they are being used by other applications as, for example, Skype.
+                        </p>
+                        <p>
+                            <span class="uk-text-primary">Q: "Speech recognition aborted. Only one instance per client is supported."<br/></span>
+                            This error will occur if BaBL is being used in two or more browser windows on the same computer and more than one of these windows are requested to generate subtitles at the same time. Just one speech recognition engine can be turned on at the same time in the same computer.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="informationFooter">
+                <a href="http://voip.itm.iit.edu/">IIT RTC Research Lab</a>
+                <a href="http://www.iit.edu">Illinois Institute of Technology</a>
+                <a href="http://www.webrtc.org">WebRTC.org</a>
+            </div>
+        </div>
+    </body>
+</html>

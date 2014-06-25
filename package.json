@@ -1,0 +1,16 @@
+{
+  "name" : "BaBL",
+  "version" : "2.0.0",
+  "main" : "server.js",
+  "author" : {
+    "name" : "Luis Villaseñor Muñoz",
+    "email" : "lvillase@hawk.iit.edu"
+  },
+  "keywords" : [ "" ],
+  "licenses" : {
+    "type" : "mit"
+  },
+  "license" : {
+    "type" : "mit"
+  }
+}

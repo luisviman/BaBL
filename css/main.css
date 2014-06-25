@@ -1,0 +1,338 @@
+
+/* GRID: */
+html {
+    height: 100%;
+    min-width: 620px;
+}
+
+body {
+    height: 100%;
+}
+
+#page {
+    height: 100%;
+}
+
+#header {
+    height: 75px;
+    background-color: #003399;
+    background-image: linear-gradient(to bottom, #59b2d2, #039);
+}
+
+.body {
+    position: absolute;
+    top: 75px;
+    bottom: 35px;
+    width: 100%;
+    background-image: url('/images/background.JPG');
+    background-size: 650px;
+}
+
+.footer {
+    height: 35px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: right;
+    background-color: #444444;
+    background-image: linear-gradient(to bottom, #444444, black);
+}
+
+.footer a{
+    line-height: 30px;
+    margin-right: 2%;
+}
+
+/* GENERAL: */
+a:link {color:#fff;}
+a:visited {color:#fff;}
+a:hover {color:#f9df28;}
+
+#header1{
+    width: 10%;
+    left: 1%;
+    position: absolute;
+    margin-top: 10px;
+    z-index: 1;
+}
+
+#header2{
+    margin-left: 14%;
+    width: 60%;
+    float: left;
+    text-align: center;
+}
+
+#header3{
+    width: 25%;
+    right: 1%;
+    position: absolute;
+    margin-top: 10px;
+    z-index: 1;
+    text-align: right;
+}
+
+#BaBLLogo{
+    -webkit-filter: drop-shadow(5px 5px 3px rgba(0,0,0,0.5));
+}
+
+#IITLogo{
+    -webkit-filter: drop-shadow(5px 5px 3px rgba(0,0,0,0.5));
+    max-height: 55px;
+}
+
+h1{
+    margin-right: 5%;
+    font-family: 'Love Ya Like A Sister', cursive;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    display: inline-block;
+    font-size: 25px;
+}
+
+#whiteTower{
+    height: 40px;
+}
+
+.uk-panel-box-primary{
+    background-color: rgba(255,255,255,0.85);
+    font-weight: bold;
+}
+
+/* INDEX: */
+#form-panel{
+    margin-top: 50px;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#access-form{
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+#messages{
+    height: 3em;
+    margin-top: 2em;
+    line-height: 0;
+    text-align: center;
+}
+
+#error{
+    color: red;
+    font-style: italic;
+}
+
+#thanks{
+    text-align: center;
+}
+
+/* ROOM: */
+#localArea{
+    width: 20%;
+    float: left;
+}
+
+#localAreaPanel{
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+#localAreaPanel a:link{
+    color: #2d7091;
+}
+
+#localAreaPanel a:visited{
+    color: #2d7091;
+}
+
+#localAreaPanel a:hover{
+    color:#59b2d0;
+}
+
+#localVideo{
+    width: 100%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.speechRecognitionIndicatorOff{
+    opacity: 0;
+}
+
+.speechRecognitionIndicatorOn{
+    opacity: 1;
+    -webkit-transition: opacity 1s ease-in;
+    -moz-transition: opacity 1s ease-in;
+    -ms-transition: opacity 1s ease-in;
+    -o-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+    background-color: rgba(89, 178, 208, 0.3);
+}
+
+#remoteArea{
+    width: 80%;
+    float: right;
+}
+
+.remoteUserArea1{
+    width: 70%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.remoteUserArea2{
+    width: 40%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 4%;
+}
+
+.remoteUserArea3{
+    width: 33%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 9%;
+}
+
+.remoteUserTitle {
+    text-align: center;
+}
+
+.remoteUserVideo {
+    width: 100%;   
+}
+
+.roomBodyLong{
+    margin-top: -7px;
+    padding-bottom: 15px;
+    position: static;
+    display: inline-block;
+}
+
+.roomFooterLong{
+    position: static;
+    margin-top: -7px;
+}
+
+.uk-overlay{
+    width: 90%;
+}
+
+.remoteUserSubtitles {
+    opacity: 1;
+}
+
+/*ERRORS*/
+#errorPanel{
+    margin-top: 10px;
+    max-width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#errorImage{
+    max-height: 90%;
+}
+
+/*TRANSCRIPTION STORAGE*/
+#transcriptionStoragePanel{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#transcriptionStoragePanel caption{
+    line-height: 2em;
+    font-size: 2.5em;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-style: normal;
+    font-weight: bold;
+    color: #59b2d0;
+    text-align: center;
+}
+
+#transcriptionStorageBody{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-image: url('/images/background.JPG');
+    background-size: 650px;
+}
+
+#transcriptionStorageFooter{
+    background-image: linear-gradient(to bottom, #444444, black);
+    text-align: right;
+    height: 35px;
+}
+
+#transcriptionStorageFooter a{
+    line-height: 30px;
+    margin-right: 2%;
+}
+
+
+/*INFORMATION PAGES*/
+#informationPanel{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#informationBody{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-image: url('/images/background.JPG');
+    background-size: 650px;
+}
+
+#informationContainer{
+    padding: 5%;
+    display: inline-block;
+    text-align: justify;
+}
+
+#informationContainer a:link{
+    color: #2d7091;
+}
+
+#informationContainer a:visited{
+    color: #2d7091;
+}
+
+#informationContainer a:hover{
+    color:#59b2d0;
+}
+
+#informationContainer h1{
+    line-height: 33px;
+}
+
+#informationFooter{
+    background-image: linear-gradient(to bottom, #444444, black);
+    text-align: right;
+    height: 35px;
+}
+
+#informationFooter a{
+    line-height: 30px;
+    margin-right: 2%;
+}
+
+#towerImage{
+    width: 20%;
+    padding-right: 2%;
+    float: left;
+}
+
+#chromeImage{
+    width: 20%;
+    padding-right: 2%;
+    float: left;
+}

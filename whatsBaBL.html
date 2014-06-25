@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BaBL</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/lib/jquery-2.1.0.min.js"></script>
+        <script src="js/lib/uikit.min.js"></script>
+        <link href="//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/babl.uikit.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/responsive.css"/>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="header1"><img src="/images/BaBLLogo.png" alt="BaBL" id="BaBLLogo"></div>
+                <div id="header2">
+                    <h1><a href="/"><img src="/images/whiteTower.png" id="whiteTower">Home</a></h1>
+                    <h1><a href="/whatsBaBL.html"><img src="/images/whiteTower.png" id="whiteTower">What's BaBL?</a></h1>
+                    <h1><a href="/problems.html"><img src="/images/whiteTower.png" id="whiteTower">Problems?</a></h1>
+                    <h1><a href="/contact.html"><img src="/images/whiteTower.png" id="whiteTower">Contact</a></h1>
+                </div>
+                <div id="header3"><img src="/images/IITLogo.png" alt="IIT" id="IITLogo"></div>
+            </div>
+
+            <div id="informationBody">
+                <div class="uk-panel uk-panel-box uk-panel-box-primary" id="informationPanel">
+                    <div id="informationContainer">
+                        <img src="/images/tower.png" id="towerImage">
+
+                        <h1 class="uk-text-primary">Table of contents:</h1>
+                        <p>
+                            <a href="#WB1">What's BaBL?</a><br/>
+                            <a href="#WB2">Multiconference</a><br/>
+                            <a href="#WB3">Real-time captioning</a><br/>
+                            <a href="#WB4">Transcription storage</a><br/>
+                            <a href="#WB5">Instant translation</a><br/>
+                            <a href="#WB6">Spoken subtitles</a><br/>
+                        </p>
+
+                        <h1 id="WB1" class="uk-text-primary">What's BaBL?</h1>
+                        <p>
+                            BaBL is a multi-user videoconferencing application able to provide real-time caption and other features
+                            related to speech recognition as instant translation and transcription storage using HTML5 APIs.
+                        </p>
+                        <p>
+                            BaBL requires no installation nor plugins. All the required components are built-in in the browser or are
+                            accessed through the Internet. You will need the latest Google Chrome browser in order to enjoy all the
+                            features included in BaBL because Chrome is the only browser that has implemented the Web Speech API
+                            nowadays, used for speech recognition. The rest of the browser vendors are expected to implement this
+                            HTML5 API soon.
+                        </p>
+                        <p>
+                            The application was developed by Luis Villaseñor Muñoz during the Fall 2013 and the Spring 2014 semesters
+                            at Illinois Institute of Technology as part of his course work. The application's development was
+                            supervised since its beginning by Professor Carol Davids.
+                        </p>
+                        <p>
+                            The application was presented in public on April 30, 2014, at the Real-Time Communications Roundtable
+                            event hosted by the RTC Research Lab.
+                        </p>
+                        <p>
+                            BaBL has been developed using free resources and technologies that are still under development. However,
+                            we think the result is satisfactory. Technology is awesome.
+                        </p>
+
+                        <h1 id="WB2" class="uk-text-primary">Multiconference</h1>
+                        <p>
+                            Using the WebRTC web API, BaBL is able to provide audio and video conferencing. There can be multiple
+                            conferences going on at the same time and each of these conferences can have multiple users.
+                        </p>
+                        <p>
+                            When possible, the call is established using peer-to-peer connections between users, improving
+                            performance, security and privacy compared to centralized conference services.
+                        </p>
+
+                        <h1 id="WB3" class="uk-text-primary">Real-time captioning</h1>
+                        <p>
+                            Thanks to the HTML5's Web Speech API we are able to convert the local user's speech into text. Once we
+                            have the text, we use the WebRTC datachannel to transmit the speech transcription to the remote users
+                            that are requesting real-time captioning.
+                        </p>
+
+                        <h1 id="WB4" class="uk-text-primary">Transcription storage</h1>
+                        <p>
+                            Another feature included in BaBL consists in storing locally the transcribed conversation that is taking
+                            place in the room, so the user can read it later. The application will collect the speech transcription
+                            of every user present in the room (including ourselves) and will store them using IndexedDB, another
+                            HTML5 API.
+                        </p>
+                        <p>
+                            This feature can be turned on or off by operating the transcription storage switch. All the stored
+                            transcriptions can be browsed clicking the "Browse stored transcriptions" link. These transcriptions
+                            include the user, the time and the room in which these transcriptions were taken.
+                        </p>
+                        <p>
+                            Some advantages of storing transcribed conversations instead of the conference's audio or video are that
+                            the transcribed conversations are just text, much lighter than audio or video and easier to search and
+                            browse.
+                        </p>
+
+                        <h1 id="WB5" class="uk-text-primary">Instant translation</h1>
+                        <p>
+                            If the users speak different languages, BaBL is able to provide translated subtitles. The original
+                            transcribed speech will be send to a translation service taking into consideration both the original
+                            language and the desired language. The translation service chosen is Microsoft Translator.
+                        </p>
+
+                        <h1 id="WB6" class="uk-text-primary">Spoken subtitles</h1>
+                        <p>
+                            Do you imagine having a conversation with someone who speaks in other language and listening to him in
+                            your own language? You can do it with BaBL! Now that we have the translated text we can use one of the
+                            speech synthesis engines of the Web Speech API to read them aloud.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="informationFooter">
+                <a href="http://voip.itm.iit.edu/">IIT RTC Research Lab</a>
+                <a href="http://www.iit.edu">Illinois Institute of Technology</a>
+                <a href="http://www.webrtc.org">WebRTC.org</a>
+            </div>
+        </div>
+    </body>
+</html>
