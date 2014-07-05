@@ -9,7 +9,7 @@ var AUDIO_CONSTRAINT = true; // true -> Activates audio
 // Instant translation settings:
 var ENABLE_DRAFT_TRANSLATION = true; // false -> Add delay but save characters
 
-// STUN/TURN servers:
+// STUN/TURN servers: /*TURN SERVER DOES NOT WORK*/
 var PC_CONFIG_CHROME = {'iceServers': [
         {'url': 'stun:stun.l.google.com:19302'},
         {'url': 'turn:toto@adana4.rice.iit.edu:3479', 'credential': 'password'}]};
@@ -273,7 +273,6 @@ function createPeerConnection(user) {
     pc[user].onicecandidate = handleICECandidate;
     pc[user].ondatachannel = handleDataChannel;
 
-    /*An error may occur at this point due to race conditions (although never happended before)*/
     pc[user].addStream(localStream);
 
     // HANDLERS:
@@ -321,7 +320,7 @@ function createPeerConnection(user) {
         remoteUserOverlayAreaContent.appendChild(subtitlesButtons);
 
         var subtitlesButtonNone = document.createElement('button');
-        subtitlesButtonNone.innerHTML = 'Off'; /* None or Off */
+        subtitlesButtonNone.innerHTML = 'Off';
         subtitlesButtonNone.className = 'uk-button uk-button-primary uk-active';
         subtitlesButtonNone.id = 'subtitlesButtonNoneFor' + user;
         subtitlesButtonNone.setAttribute('data-uk-tooltip', "{pos:'bottom'}");
@@ -329,7 +328,7 @@ function createPeerConnection(user) {
         subtitlesButtons.appendChild(subtitlesButtonNone);
 
         var subtitlesButtonOriginal = document.createElement('button');
-        subtitlesButtonOriginal.innerHTML = 'Original'; /* On, CC or Original*/
+        subtitlesButtonOriginal.innerHTML = 'Original';
         subtitlesButtonOriginal.className = 'uk-button uk-button-primary';
         subtitlesButtonOriginal.id = 'subtitlesButtonOriginalFor' + user;
         subtitlesButtonOriginal.setAttribute('data-uk-tooltip', "{pos:'bottom'}");
@@ -337,7 +336,7 @@ function createPeerConnection(user) {
         subtitlesButtons.appendChild(subtitlesButtonOriginal);
 
         var subtitlesButtonTranslated = document.createElement('button');
-        subtitlesButtonTranslated.innerHTML = 'Translated'; /*Translate or Translated*/
+        subtitlesButtonTranslated.innerHTML = 'Translated';
         subtitlesButtonTranslated.className = 'uk-button uk-button-primary';
         subtitlesButtonTranslated.id = 'subtitlesButtonTranslatedFor' + user;
         subtitlesButtonTranslated.setAttribute('data-uk-tooltip', "{pos:'bottom'}");
@@ -445,7 +444,7 @@ function manageRemoteAreasClassNames() {
         }
         var roomBody = document.getElementById('roomBody');
         var roomFooter = document.getElementById('roomFooter');
-        if(Object.keys(pc).length > 4){
+        if (Object.keys(pc).length > 4) {
             roomBody.classList.add('roomBodyLong');
             roomFooter.classList.add('roomFooterLong');
         } else {
@@ -529,8 +528,7 @@ function sendSubtitle(subtitle) {
                     if (toLanguage === 'cmn') {
                         toLanguage = 'zh-CHS';
                     }
-                    /*ARREGLANDO ESTO*/
-                    /*socket.emit('translation request', subtitle.text, fromLanguage, toLanguage, user);*/
+
                     socket.emit('translation request', subtitle, fromLanguage, toLanguage, user);
                 }
             }
@@ -541,7 +539,7 @@ function sendSubtitle(subtitle) {
 // Request another user to start broadcasting subtitles
 // The signaling goes through the server
 function requestSubtitlesToStart(user, language, visibility) {
-    if(visibility === 'visible'){
+    if (visibility === 'visible') {
         var remoteUserSubtitles = document.getElementById('remoteUserSubtitlesFor' + user);
         remoteUserSubtitles.style.visibility = visibility;
         dataChannels[user].isLocalUserRequestingSubtitles = true;
@@ -719,15 +717,22 @@ var languagesIndex = {
     'es-VE': 2,
     'fr': 3, 'fr-FR': 3,
     'it': 4, 'it-IT': 4, 'it-CH': 4,
-    'pt': 5, 'pt-BR': 5, 'pt-PT': 5,
-    'ru': 6, 'ru-RU': 6,
-    'ko': 7, 'ko-KR': 7,
-    'cmn': 8,
-    'cmn-Hans': 8, 'cmn-Hans-CN': 8, 'cmn-Hans-HK': 8,
-    'cmn-Hant': 8, 'cmn-Hant-TW': 8,
-    'yue': 8, 'yue-Hant': 8, 'yue-Hant-HK': 8,
-    'ja': 9, 'ja-JP': 9,
-    'ar': 10
+    'hu': 5, 'hu-HU': 5,
+    'no': 6, 'no-NO': 6,
+    'nb': 6, 'nb-NO': 6,
+    'pl': 7, 'pl-PL': 7,
+    'pt': 8, 'pt-BR': 8, 'pt-PT': 8,
+    'sv': 9, 'sv-SE': 9,
+    'ar': 10,
+    'cmn': 11,
+    'cmn-Hans': 11, 'cmn-Hans-CN': 11, 'cmn-Hans-HK': 11,
+    'cmn-Hant': 11, 'cmn-Hant-TW': 11,
+    'yue': 11, 'yue-Hant': 11, 'yue-Hant-HK': 11,
+    'he': 12, 'he-IL': 12,
+    'iw': 12, 'iw-IL': 12,
+    'ja': 13, 'ja-JP': 13,
+    'ko': 14, 'ko-KR': 14,
+    'ru': 15, 'ru-RU': 15
 };
 
 // EXECUTION:
@@ -875,7 +880,7 @@ function requestTranscriptionStorageToStart() {
     isTranscriptionStorageEnabled = true;
     for (var user in dataChannels) {
         if (dataChannels[user].isLocalUserRequestingTranslatedSubtitles) {
-            //requestSubtitlesToStart(user, recognition.lang, 'hidden'); /*REVISAR ESTO*/
+            //requestSubtitlesToStart(user, recognition.lang, 'hidden'); /*REVIEW THIS*/
         } else {
             requestSubtitlesToStart(user, '', 'hidden');
         }
@@ -959,4 +964,5 @@ function speak(text) {
 
         speechSynthesis.speak(msg);
     }
-};
+}
+;
