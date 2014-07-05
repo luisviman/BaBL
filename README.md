@@ -1,8 +1,8 @@
 BaBL
 ====
+Real-time captioning and instant translation for WebRTC
 
-Real-time captioning for WebRTC
+Visit BaBL at https://dixie11.rice.iit.edu
 
-
-Please visit https://github.com/luisviman/BaBL/wiki for updated information about the BaBL project.
-
+More information about BaBL: https://github.com/luisviman/BaBL/wiki
+More information about BaBL and other projects developed at IIT RTC lab: http://projects.rtc.iit.edu/
