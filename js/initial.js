@@ -2,6 +2,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 //INITIAL: Manages index.html web page
 
+// Feature testing.
+// Redirects to an information page if the browser doesn't support the required APIs
+if (!('webkitSpeechRecognition' in window) || !('RTCPeerConnection' in window)){
+    window.location = '/errorNoFeatures.html';
+}
+
 // Listener for submitting the form with the enter key
 document.getElementById('access-form').onkeypress = function() {
     if (window.event.keyCode === 13) {

@@ -3,7 +3,6 @@
     <head>
         <title>BaBL</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="js/lib/adapter.js"></script>
         <script src="js/lib/jquery-2.1.0.min.js"></script>
         <script src="js/lib/uikit.min.js"></script>
         <link href="//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet" type="text/css">
@@ -26,39 +25,27 @@
                 <div id="header3"><img src="/images/IITLogo.png" alt="IIT" id="IITLogo"></div>
             </div>
 
-            <div id="indexBody" class="body">
-                <div class="uk-panel uk-panel-box uk-panel-box-primary" id="form-panel">
-                    <div id="messages"><p>Please enter username and room</p></div>
-                    <form id="access-form" class="uk-form uk-form-horizontal">
-                        <div class="uk-form-row">
-                            <label class="uk-form-label" for="form-h-it">Username:</label>
-                            <div class="uk-form-controls">
-                                <input type="text" id="username" class="form-h-it">
-                            </div>
-                        </div>
-                        <div class="uk-form-row">
-                            <label class="uk-form-label" for="form-h-it">Room:</label>
-                            <div class="uk-form-controls">
-                                <input type="text" id="room" class="form-h-it">
-                            </div>
-                        </div>
-                        <div class="uk-form-row">
-                            <div class="uk-form-controls">
-                                <button type="button" class="uk-button uk-button-primary" onclick="goToRoom(room.value, username.value)" >Go to room</button>
-                            </div>
-                        </div>
-                    </form>
+            <div id="noFeaturesBody" class="body">
+                <div class="uk-panel uk-panel-box uk-panel-box-primary contactBody" id="form-panel">
+                    <div id="informationContainer">
+                        <img src="/images/tower.png" id="towerImage">
+                        <h1 class="uk-text-primary">Your browser is OK but...</h1>
+                        <p class="noFeaturesP">Your browser doesn't support the technologies needed in order to enjoy all the features included
+                            in BaBL.</p>
+                        
+                        <a href="http://www.google.com/chrome/browser/"><img src="/images/chrome.png" id="chromeImage"></a>
+                        <p class="noFeaturesP">Why don't you try BaBL using the <a href="http://www.google.com/chrome/browser/">latest Google Chrome browser</a>
+                        either for Desktop or Android?</p>
+                        <p id="thanks">Thank you!</p>
+                    </div>
                 </div>
             </div>
 
-            <div id="indexFooter" class="footer">
+            <div id="noFeaturesFooter" class="footer">
                 <a href="http://voip.itm.iit.edu/">IIT RTC Research Lab</a>
                 <a href="http://www.iit.edu">Illinois Institute of Technology</a>
                 <a href="http://www.webrtc.org">WebRTC.org</a>
             </div>
         </div>
-
-        <script src="js/initial.js"></script>
-
     </body>
 </html>

@@ -1,5 +1,11 @@
 'use strict';
 
+// Feature testing.
+// Redirects to an information page if the browser doesn't support the required APIs
+if (!('webkitSpeechRecognition' in window) || !('RTCPeerConnection' in window)){
+    window.location = '/errorNoFeatures.html';
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //SETTINGS:
 
@@ -9,16 +15,12 @@ var AUDIO_CONSTRAINT = true; // true -> Activates audio
 // Instant translation settings:
 var ENABLE_DRAFT_TRANSLATION = true; // false -> Add delay but save characters
 
-// STUN/TURN servers: /*TURN SERVER DOES NOT WORK*/
+// STUN/TURN servers: /*PLACE YOUR TURN/STUN SERVER INFORMATION HERE*/
 var PC_CONFIG_CHROME = {'iceServers': [
-        {'url': 'stun:stun.l.google.com:19302'},
-        {'url': 'turn:toto@adana4.rice.iit.edu:3479', 'credential': 'password'}]};
+        {'url': 'stun:stun.l.google.com:19302'}]};
 var PC_CONFIG_FIREFOX = {'iceServers': [
-        {'url': 'stun:stun.services.mozilla.com'},
-        {'url': 'turn:toto@adana4.rice.iit.edu:3479', 'credential': 'password'}]};
-var PC_CONFIG_OTHER = {'iceServers': [
-        {'url': 'stun:adana4.rice.iit.edu:3479'},
-        {'url': 'turn:toto@adana4.rice.iit.edu:3479', 'credential': 'password'}]};
+        {'url': 'stun:stun.services.mozilla.com'}]};
+var PC_CONFIG_OTHER = {};
 
 // Datachannel settings:
 var DATACHANNEL_CONFIG = {
