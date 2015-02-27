@@ -17,8 +17,8 @@ var file = new static.Server();
 
 //SSL CERTIFICATE:
 var httpsoptions = {
-    key: fs.readFileSync('PRIVATE KEY HERE'), 
-    cert: fs.readFileSync('SSL CERTIFICATE HERE')
+    key: fs.readFileSync('PRIVATE KEY HERE.key'),
+    cert: fs.readFileSync('SSL CERTIFICATE HERE.crt')
 };
 
 //HTTPS WEB SERVER:
@@ -27,7 +27,7 @@ var HTTPSWebServer = https.createServer(httpsoptions, function(req, res) {
     if (req.url.substring(1, 6) === 'room=' && req.url.indexOf('&username=') !== 6) {
         file.serveFile('/room.html', 200, {}, req, res);
         //Serve error404.html for hidden files
-    } else if (req.url === 'PRIVATE KEY HERE' || req.url === 'SSL CERTIFICATE HERE') {
+    } else if (req.url === 'PRIVATE KEY HERE.key' || req.url === 'SSL CERTIFICATE HERE.crt') {
         file.serveFile('/error404.html', 404, {}, req, res);
         //Serve the rest of the files and handles 404 errors
     } else {
@@ -54,7 +54,6 @@ var rooms = {};
 
 // SOCKET.IO SET-UP:
 var io = require('socket.io').listen(HTTPSWebServer);
-io.set('log level', 2);
 
 // CONNECTION HANDLING:
 io.sockets.on('connection', function(socket) {
@@ -74,7 +73,7 @@ io.sockets.on('connection', function(socket) {
             if (rooms[room] === undefined) {
                 rooms[room] = {};
                 socket.join(room);
-                socket.set('socketID', username + '@' + room);
+                socket.socketID = username + '@' + room;
                 socket.emit('room created', room);
                 rooms[room][username] = socket;
                 console.log('>> BaBL:', new Date(), '- Room', room, 'created by user', username);
@@ -89,7 +88,7 @@ io.sockets.on('connection', function(socket) {
                 // Let the other users know that this user has joined
                 io.sockets.in(room).emit('new user joined', username, room);
                 socket.join(room);
-                socket.set('socketID', username + '@' + room);
+                socket.socketID = username + '@' + room;
                 // Previous userlist is attached for peer connection creation
                 socket.emit('room joined', room, Object.keys(rooms[room]));
                 rooms[room][username] = socket;
@@ -102,32 +101,26 @@ io.sockets.on('connection', function(socket) {
     socket.on('disconnect', function() {
         var username;
         var room;
-        socket.get('socketID', function(err, socketID) {
-            if (socketID !== null) {
-                username = socketID.split('@')[0];
-                room = socketID.split('@')[1];
-                delete rooms[room][username];
-                if (Object.keys(rooms[room]).length === 0) {
-                    delete rooms[room];
-                }
-                socket.leave(room);
-                console.log('>> BaBL:', new Date(), '- User', username, 'left room', room);
-                socket.broadcast.to(room).emit('user disconnected', username);
+        if (socket.socketID !== null) {
+            username = socket.socketID.split('@')[0];
+            room = socket.socketID.split('@')[1];
+            delete rooms[room][username];
+            if (Object.keys(rooms[room]).length === 0) {
+                delete rooms[room];
             }
-            var clientAddress = socket.handshake.address;
-            console.log('>> BaBL:', new Date(), '- Client disconnected: {', socket.id, '} @', clientAddress);
-        });
+            socket.leave(room);
+            console.log('>> BaBL:', new Date(), '- User', username, 'left room', room);
+            socket.broadcast.to(room).emit('user disconnected', username);
+        }
+        var clientAddress = socket.handshake.address;
+        console.log('>> BaBL:', new Date(), '- Client disconnected: {', socket.id, '} @', clientAddress);
     });
 
     // SUBTITLES:
     // Redirects subtitles requests
     socket.on('subtitles request', function(message, toUser, language) {
-        var fromUser;
-        var room;
-        socket.get('socketID', function(err, socketID) {
-            fromUser = socketID.split('@')[0];
-            room = socketID.split('@')[1];
-        });
+        var fromUser = socket.socketID.split('@')[0];
+        var room = socket.socketID.split('@')[1];
         // Avoids server crashes
         if (typeof (rooms[room][toUser]) !== 'undefined') {
             rooms[room][toUser].emit('subtitles request', message, fromUser, language);
@@ -149,12 +142,8 @@ io.sockets.on('connection', function(socket) {
                 from: fromLanguage,
                 to: toLanguage
             };
-            var fromUser;
-            var room;
-            socket.get('socketID', function(err, socketID) {
-                fromUser = socketID.split('@')[0];
-                room = socketID.split('@')[1];
-            });
+            var fromUser = socket.socketID.split('@')[0];
+            var room = socket.socketID.split('@')[1];
             charactersTranslated += subtitleToTranslate.text.length;
             console.log('>> BaBL:', new Date(), '-', charactersTranslated,
                     'characters translated since last server start');
@@ -173,23 +162,15 @@ io.sockets.on('connection', function(socket) {
     // FUNCTIONS:
     // Redirects a user's message to the rest of users in one room
     socket.on('message to room', function(message) {
-        var fromUser;
-        var toRoom;
-        socket.get('socketID', function(err, socketID) {
-            fromUser = socketID.split('@')[0];
-            toRoom = socketID.split('@')[1];
-        });
+        var fromUser = socket.socketID.split('@')[0];
+        var toRoom = socket.socketID.split('@')[1];
         socket.broadcast.to(toRoom).emit('message', message, fromUser);
     });
 
     // Redirects a user's message to other user in one room
     socket.on('message to user', function(message, toUser) {
-        var fromUser;
-        var room;
-        socket.get('socketID', function(err, socketID) {
-            fromUser = socketID.split('@')[0];
-            room = socketID.split('@')[1];
-        });
+        var fromUser = socket.socketID.split('@')[0];
+        var room = socket.socketID.split('@')[1];
         // Avoids server crashes
         if (typeof (rooms[room][toUser]) !== 'undefined') {
             rooms[room][toUser].emit('message', message, fromUser);
